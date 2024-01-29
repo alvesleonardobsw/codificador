@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.container {
+    margin: 10%;
+}
+
+.box__Total {
+    display: flex;
+}
+
+.box__area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+}
+
+.box__text {
+    display: flex;
+}
+
+.box__button__text {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    
+}
+
+.box__button__read {
+    display: flex;
+}
+
+.vertical__line {
+    border-left: 2px solid gray;
+    height: 380px;
+}
