@@ -32,11 +32,14 @@ body {
     display: flex;
     justify-content: space-between;
     width: 50%;
-    
+    margin: 20px;
 }
 
 .box__button__read {
     display: flex;
+    justify-content: center;
+    margin: 20px;
+    
 }
 
 .vertical__line {
