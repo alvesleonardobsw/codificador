@@ -1,18 +1,34 @@
+function hasEspecialCharacter (text) {
+    let especialCharacter = /[A-Z!@#$%^&*()_+{}\[\]:;<>,.?~\\\/\-=`çÇ´áéíóúàãõñâêîôûÁÉÍÓÚÀÃÕÑÂÊÎÔÛ]/; 
 
-function validarTexto (texto) {
-    let caracteresEspeciais = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\\/\-=`çÇ´]/; 
-
-    return caracteresEspeciais.test(texto);
+    return especialCharacter.test(text);
 }
 
-function criptografar () {
-    let texto = document.getElementById('textWrite').value;
+function verifyString (text) {
 
-    console.log(texto);
+    console.log(text);
 
-    if (validarTexto(texto)){
-        console.log("a string tem caracter especial");
+    if (hasEspecialCharacter(text)){
+        alert("O texto contém caracter especial ou letras maiúsculas");
     } else {
-        console.log("a string nao contem caracter especial");
+        encrypt(text);
     }
+}
+
+function encrypt (text) {
+    let newText = "";
+    for(let i = 0; i < text.length; i++){
+        let character = text[i];
+        if (/[aeiou]/.test(text[i])){
+            //se entrou aqui é porque achou uma vogal
+        } else {
+            //se entrou aqui é porque não achou uma vogal
+        }
+    }
+}
+
+function onClickEncrypt() {
+    let text = document.getElementById('textWrite').value;
+
+    verifyString(text);
 }
