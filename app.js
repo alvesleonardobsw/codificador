@@ -4,31 +4,59 @@ function hasEspecialCharacter (text) {
     return especialCharacter.test(text);
 }
 
-function verifyString (text) {
-
-    console.log(text);
-
-    if (hasEspecialCharacter(text)){
-        alert("O texto contém caracter especial ou letras maiúsculas");
-    } else {
-        encrypt(text);
-    }
-}
-
 function encrypt (text) {
+    const encryptDict = {
+        'a' : 'ai',
+        'e' : 'enter',
+        'i' : 'imes',
+        'o' : 'ober',
+        'u' : 'ufat'
+    };
+
     let newText = "";
+
     for(let i = 0; i < text.length; i++){
-        let character = text[i];
+        
         if (/[aeiou]/.test(text[i])){
-            //se entrou aqui é porque achou uma vogal
+            //if entered here = found a vowel
+            newText += encryptDict[text[i]];
+            console.log(newText);
         } else {
-            //se entrou aqui é porque não achou uma vogal
+            //if entered here = no vowel found
+            newText += text[i];
+            console.log(newText);
         }
     }
+
+    console.log(newText);
+    return newText;
+}
+
+function showNewText (text){
+    document.getElementById('textRead').value = text;
 }
 
 function onClickEncrypt() {
     let text = document.getElementById('textWrite').value;
 
-    verifyString(text);
+    if (hasEspecialCharacter(text)){
+        alert("O texto contém caracter especial ou letras maiúsculas");
+        return
+    } 
+        
+    let newText = encrypt(text);
+    showNewText(newText);
+    
+}
+
+function onClickCopy(){
+    let text = document.getElementById('textRead').value;
+    
+    navigator.clipboard.writeText(text)
+        .then(() =>{
+            alert("Texto Copiado!");
+        })
+       .catch(err => {
+            console.error('Erro ao tentar copiar o texto: ', err);
+        })
 }
